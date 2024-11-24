@@ -1,0 +1,30 @@
+<!-- templates/admin/tasks/submit_task.html -->
+{% extends "admin/change_form.html" %}
+
+{% block content %}
+  <div class="module">
+  </head>
+  <body>
+      <h1>Task Submission for {{ task.name }}</h1>
+      
+      <h2>Existing Submissions</h2>
+      <ul>
+          {% for submission in task_submissions %}
+              <li>{{ submission.text_info }}</li>
+              {% if submission.images %}
+                  <img src="{{ submission.images.url }}" alt="Submission Image">
+              {% endif %}
+              <hr>
+          {% empty %}
+              <li>No submissions yet.</li>
+          {% endfor %}
+      </ul>
+      
+      <h2>Create a New Submission</h2>
+      <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <button type="submit">Submit</button>
+      </form>
+  </div>
+{% endblock %}

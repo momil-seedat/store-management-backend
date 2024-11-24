@@ -1,0 +1,15 @@
+<!-- templates/admin/tasks/assigned_tasks.html -->
+{% extends "admin/base.html" %}
+
+{% block content %}
+  <div class="module">
+    <h1>Assigned Tasks</h1>
+    <ul>
+        {% for task in assigned_tasks %}
+            <li><a href="{% url 'task_submission' task.id %}">{{ task.name }}</a></li>
+        {% empty %}
+            <li>No assigned tasks.</li>
+        {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

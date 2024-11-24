@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+      - "8000"  # Expose port for inter-service communication
+    volumes:
+      - ./staticfiles:/app/staticfiles
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"  # Map port 80 on the host to port 80 on the container
+    depends_on:
+      - app  # Ensure app starts before nginx
+    volumes:
+      - ./staticfiles:/usr/share/nginx/html/static
+      - ./nginx.conf:/etc/nginx/nginx.conf  # Mount Nginx config
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
