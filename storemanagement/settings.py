@@ -81,11 +81,11 @@ WSGI_APPLICATION = 'storemanagement.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'store_management',
+          'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'imo_db',
         'USER': 'postgres',
-        'PASSWORD': 'postgres',
-        'HOST': '172.25.48.1',  # Set to the hostname or IP address of your PostgreSQL server.
+        'PASSWORD': 'imo12345',
+        'HOST': '10.226.50.55',  # Set to the hostname or IP address of your PostgreSQL server.
         'PORT': '5432',       # Default PostgreSQL port.
     }
 }
