@@ -138,6 +138,8 @@ STATICFILES_DIRS = (
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+     'http://10.226.50.55',
+     'http://180.165.62.140'
 ]
 
 REST_FRAMEWORK = {
