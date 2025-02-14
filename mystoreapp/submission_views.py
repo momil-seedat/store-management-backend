@@ -28,7 +28,7 @@ class ImageUploadListAPIView(APIView):
             image_name = f"image_{timestamp}.jpg"  # Change the extension based on your requirement
 
             # Write the file to the filesystem
-            with open(f"d:/fiverr/images/{image_name}", 'wb') as file:
+            with open(f"/app/images/{image_name}", 'wb') as file:
                 for chunk in uploaded_file.chunks():
                     file.write(chunk)
 
@@ -43,7 +43,7 @@ class DeleteImageAPIView(APIView):
     def delete(self, request, image_name):
         try:
             # Specify the directory path where images are stored
-            directory_path = "d:/fiverr/images/"  # Replace with your image directory path
+            directory_path = "/app/images/"  # Replace with your image directory path
 
             # Construct the full path of the image
             image_path = os.path.join(directory_path, image_name)
@@ -127,7 +127,7 @@ def get_submission_details(request, submission_id):
     return Response(submission_data, status=status.HTTP_200_OK)
 
 def get_image(request, image_name):
-    images_directory = "d:/fiverr/images/"
+    images_directory = "/app/images/"
     image_path = os.path.join(images_directory, image_name)
 
     if os.path.exists(image_path):

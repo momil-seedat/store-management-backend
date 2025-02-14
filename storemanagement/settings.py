@@ -140,10 +140,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
      'http://10.226.50.55',
      'http://180.165.62.140',
-     'http://58.37.106.203',
-]
-CSRF_TRUSTED_ORIGINS = [
-    'http://58.37.106.203:8687',  # Replace with your origin
+     'http://zhipei2022.synology.me',
 ]
 
 REST_FRAMEWORK = {
@@ -156,3 +153,14 @@ REST_FRAMEWORK = {
         # Add other permission classes if needed
     ),
 }
+CSRF_TRUSTED_ORIGINS = [
+    'http://zhipei2022.synology.me:8687',
+    'http://zhipei2022.synology.me:8686',
+]
+
+CSRF_ORIGIN_WHITELIST = [
+    'http://localhost:8000',
+    'http://zhipei2022.synology.me:8687',
+    'http://zhipei2022.synology.me:8686',
+ 
+]
