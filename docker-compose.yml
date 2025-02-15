@@ -9,6 +9,7 @@ services:
       - "8000"  # Expose port for inter-service communication
     volumes:
       - ./staticfiles:/app/staticfiles
+      - ./images:/app/images
     networks:
       - app-network
 
